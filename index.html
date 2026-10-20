@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VSS Ad Studio</title>
+<meta name="description" content="Performance video ads for mobile games: five hook variations per pack, 48-hour turnaround.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an edit-suite page — hero over a hook timeline strip, three phone-frame spec ads, then offer, steps, pricing, contact. */
+:root{
+  --bg:#F2F3F6; --surface:#FFFFFF; --fg:#151722; --muted:#5B5F70; --line:#D9DBE3;
+  --accent:#E0482F; --accent-ink:#FFFFFF; --hook:#E0482F; --play:#2F6FE0; --cta:#1E9E6A;
+  --phone:#1B1D28; --phone-fg:#F2F3F6;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12131A; --surface:#1B1D27; --fg:#ECEDF2; --muted:#9A9EB0; --line:#2C2F3D;
+  --accent:#FF6A50; --accent-ink:#12131A; --hook:#FF6A50; --play:#6A9BFF; --cta:#3CC78F;
+  --phone:#0A0B10; --phone-fg:#ECEDF2; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#12131A; --surface:#1B1D27; --fg:#ECEDF2; --muted:#9A9EB0; --line:#2C2F3D;
+  --accent:#FF6A50; --accent-ink:#12131A; --hook:#FF6A50; --play:#6A9BFF; --cta:#3CC78F;
+  --phone:#0A0B10; --phone-fg:#ECEDF2; color-scheme:dark }
+
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:56px;border-top:1px solid var(--line)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0;max-width:62ch}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sample{display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border:1px dashed var(--muted);color:var(--muted);padding:2px 8px;border-radius:4px}
+
+/* Hero */
+header{padding-block:40px 48px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.brand{font-family:var(--display);font-weight:800;font-size:1.1rem;letter-spacing:.01em}
+.brand span{color:var(--accent)}
+.hero{display:grid;gap:20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:1.15rem;color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.btn{font:600 1rem var(--body);padding:12px 20px;border-radius:6px;border:1px solid var(--fg);color:var(--fg);background:transparent;text-decoration:none;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible{outline:3px solid var(--play);outline-offset:2px}
+
+/* Hook timeline */
+.timeline{margin-top:40px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+.tl-bar{display:grid;grid-template-columns:2fr 9fr 4fr;height:38px;border-radius:4px;overflow:hidden;font:500 .78rem var(--mono)}
+.tl-bar div{display:flex;align-items:center;padding-inline:10px;color:#fff;white-space:nowrap;overflow:hidden}
+.t-hook{background:var(--hook)} .t-play{background:var(--play)} .t-cta{background:var(--cta)}
+.tl-ticks{display:flex;justify-content:space-between;font:400 .72rem var(--mono);color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
+.tl-note{margin-top:10px;font-size:.9rem;color:var(--muted)}
+
+/* Spec ads */
+.ads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px}
+.ad{display:grid;gap:12px;justify-items:start}
+.phone{width:100%;max-width:240px;aspect-ratio:9/16;background:var(--phone);color:var(--phone-fg);border-radius:22px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border:6px solid var(--phone)}
+.phone .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:auto 0}
+.phone .grid b{aspect-ratio:1;border-radius:4px;background:rgba(255,255,255,.1);display:grid;place-items:center;font:700 .8rem var(--display)}
+.phone .grid b.on{background:var(--hook);color:#fff}
+.phone .cap{font:800 1rem/1.15 var(--display);text-align:center}
+.phone .tc{font:400 .65rem var(--mono);opacity:.7;display:flex;justify-content:space-between}
+.phone .play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.phone .play i{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.phone .play i::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.ad h3{margin-top:4px}
+.ad p{font-size:.92rem;color:var(--muted)}
+
+/* Offer */
+.offer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 32px;margin-top:28px;padding:0;list-style:none}
+.offer li{padding:14px 0;border-bottom:1px solid var(--line);min-width:0}
+.offer strong{display:block;font-family:var(--display);font-size:1.05rem}
+.offer span{color:var(--muted);font-size:.95rem}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px;counter-reset:s}
+.step{min-width:0;display:grid;gap:8px}
+.step .when{font:500 .8rem var(--mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* Pricing */
+.tablewrap{overflow-x:auto;margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+th{font:500 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.price{font-family:var(--display);font-weight:700;font-size:1.1rem}
+tr.pick td{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.tag{font:500 .68rem var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-left:8px}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:start}
+form{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px}
+label{font-size:.85rem;font-weight:600}
+input,textarea{font:400 1rem var(--body);padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);width:100%;box-sizing:border-box}
+input:focus-visible,textarea:focus-visible{outline:2px solid var(--play);outline-offset:1px}
+.done{font-size:.95rem;color:var(--cta);font-weight:600}
+footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+
+@media (max-width:760px){
+  .ads,.steps,.offer,.contact{grid-template-columns:minmax(0,1fr)}
+  .ad{justify-items:center;text-align:center}
+  .ad p{margin-inline:auto}
+}
+@media (prefers-reduced-motion:no-preference){
+  .phone .grid b.on{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{50%{filter:brightness(1.25)}}
+}
+.phone.vid{padding:0}
+.phone.vid video{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;background:#0E0B10}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="top">
+    <div class="brand">VSS <span>Ad Studio</span></div>
+    <span class="sample">Spec work · fictional game</span>
+  </div>
+  <div class="hero">
+    <span class="label">Performance video for mobile games</span>
+    <h1>10 ad variations a week. <em>48-hour</em> turnaround. Built to cut your CPI.</h1>
+    <p>Each pack ships five different first-second hooks, so your UA team tests cost per install instead of waiting on one cut. Made by a filmmaker with a production pipeline, edited in Premiere.</p>
+    <div class="btns">
+      <a class="btn primary" href="#contact">Get 5 free hooks</a>
+      <a class="btn" href="#work">See spec ads</a>
+    </div>
+  </div>
+
+  <div class="timeline" aria-label="Structure of a 15-second ad">
+    <div class="tl-bar">
+      <div class="t-hook">HOOK</div>
+      <div class="t-play">GAMEPLAY · the satisfying moment</div>
+      <div class="t-cta">CTA</div>
+    </div>
+    <div class="tl-ticks"><span>0:00</span><span>0:02</span><span>0:05</span><span>0:08</span><span>0:11</span><span>0:15</span></div>
+    <p class="tl-note">Every creative uses this 15-second frame. The first two seconds change in each variation; that is where most of the CPI difference comes from.</p>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <span class="label">Spec ad · one game, three of five hooks</span>
+    <h2>Same ad. Different first two seconds.</h2>
+    <p style="margin-top:12px;color:var(--muted)">Matinee Grid is a fictional movie crossword, made to show the format. Gameplay and end card stay the same; only the hook changes, so your test isolates what moves CPI.</p>
+    <div class="ads">
+      <div class="ad">
+        <div class="phone vid">
+          <video src="media/Matinee_Grid_H1_9x16_v1.mp4" poster="media/Matinee_Grid_H1_poster.jpg" controls muted loop playsinline preload="none" aria-label="Spec ad, hook: Only film buffs get this one"></video>
+        </div>
+        <h3>Identity call-out</h3>
+        <p>&ldquo;Only film buffs get this one&rdquo; Speaks to one niche audience in the first second.</p>
+      </div>
+      <div class="ad">
+        <div class="phone vid">
+          <video src="media/Matinee_Grid_H2_9x16_v1.mp4" poster="media/Matinee_Grid_H2_poster.jpg" controls muted loop playsinline preload="none" aria-label="Spec ad, hook: 90% of people get this wrong"></video>
+        </div>
+        <h3>Challenge stat</h3>
+        <p>&ldquo;90% of people get this wrong&rdquo; A dare plus a number, so viewers stay to prove themselves.</p>
+      </div>
+      <div class="ad">
+        <div class="phone vid">
+          <video src="media/Matinee_Grid_H4_9x16_v1.mp4" poster="media/Matinee_Grid_H4_poster.jpg" controls muted loop playsinline preload="none" aria-label="Spec ad, hook: Can you solve it in under a minute?"></video>
+        </div>
+        <h3>Time challenge</h3>
+        <p>&ldquo;Can you solve it in under a minute?&rdquo; Sets a clock the viewer wants to beat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="label">In every pack</span>
+    <h2>What you get</h2>
+    <ul class="offer">
+      <li><strong>5 or 10 creatives</strong><span>Each with a different first-second hook.</span></li>
+      <li><strong>9:16 and 16:9</strong><span>Every creative in both, captions burned in.</span></li>
+      <li><strong>Hooks from your store page</strong><span>Written against your listing and player reviews.</span></li>
+      <li><strong>Premiere source files</strong><span>On request, so your team can re-cut later.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="label">Process</span>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><span class="when">Day 0</span><h3>Send your store link</h3><p>Plus any brand rules or past ads that worked.</p></div>
+      <div class="step"><span class="when">+24 h</span><h3>Approve 5 hooks</h3><p>Hook scripts arrive in writing. Keep, swap, or rewrite any of them.</p></div>
+      <div class="step"><span class="when">+48 h after approval</span><h3>Receive the pack</h3><p>Finished creatives in both formats, named for your ad manager.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="label">Pricing (USD)</span>
+    <h2>Packs</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Pack</th><th>Creatives</th><th>Price</th><th>Turnaround</th></tr></thead>
+        <tbody>
+          <tr class="pick"><td>Test <span class="tag">Start here</span></td><td>5</td><td class="price">$800</td><td>48 h</td></tr>
+          <tr><td>Weekly</td><td>10 per week</td><td class="price">$1,400 / wk</td><td>Rolling</td></tr>
+          <tr><td>Spec recut</td><td>1, of your existing ad</td><td class="price">Free</td><td>2 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div style="display:grid;gap:12px">
+      <span class="label">Contact</span>
+      <h2>Send your store link</h2>
+      <p>I reply with five hook scripts for your game within 24 hours, free. If none of them beat your current ad, you have lost nothing.</p>
+      <p class="label" style="text-transform:none;letter-spacing:0">Email: <a id="mail" href="mailto:vss.ads.studio@gmail.com">vss.ads.studio@gmail.com</a></p>
+    </div>
+    <form id="lead">
+      <label for="f-name">Your name</label>
+      <input id="f-name" required placeholder="Priya Shah">
+      <label for="f-link">Game store link</label>
+      <input id="f-link" type="url" required placeholder="https://play.google.com/store/apps/details?id=…">
+      <label for="f-note">Anything I should know</label>
+      <textarea id="f-note" rows="3" placeholder="Target markets, brand rules, current best ad"></textarea>
+      <button class="btn primary" type="submit">Request 5 hooks</button>
+      <p class="done" id="done" hidden>Your email app should open with the message ready to send.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Vikram Sound Studios · Washington, D.C. · Matinee Grid is a fictional game made for this spec ad.</div>
+</footer>
+
+<script>
+document.getElementById('lead').addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=function(id){ return document.getElementById(id).value; };
+  var body='Name: '+v('f-name')+'
+Store link: '+v('f-link')+'
+
+'+v('f-note');
+  location.href='mailto:vss.ads.studio@gmail.com?subject='+encodeURIComponent('5 free hooks: '+v('f-link'))+'&body='+encodeURIComponent(body);
+  document.getElementById('done').hidden=false;
+});
+</script>
+</body>
+</html>
