@@ -114,6 +114,10 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
   .phone .grid b.on{animation:pulse 2.4s ease-in-out infinite}
   @keyframes pulse{50%{filter:brightness(1.25)}}
 }
+.yours{display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;align-items:center;margin-top:32px}
+.yours ol{margin:0;padding-left:1.2em;display:grid;gap:14px;font-size:1.05rem}
+.yours li strong{font-family:var(--display)}
+@media (max-width:760px){.yours{grid-template-columns:minmax(0,1fr);justify-items:center}}
 .phone.vid{padding:0}
 .phone.vid video{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;background:#0E0B10}
 </style>
@@ -173,6 +177,24 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
         <h3>Emoji Flick</h3>
         <p>Emoji quiz. Hook: a dare with a stat, &ldquo;90% get the second one wrong.&rdquo;</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="yours">
+  <div class="wrap">
+    <span class="label">The service · your game</span>
+    <h2>Your gameplay in. Five ads out.</h2>
+    <p style="margin-top:12px;color:var(--muted)">Send a screen recording of your game. We add the hook, the payoff line, the end card and sound, and return five versions with different openings, in 9:16 and 16:9.</p>
+    <div class="yours">
+      <div class="phone vid">
+        <video src="media/Matinee_Grid_Footage_H1_9x16_v1.mp4" poster="media/Matinee_Grid_Footage_H1_poster.jpg" controls muted loop playsinline preload="none" aria-label="Spec ad made from a plain gameplay recording"></video>
+      </div>
+      <ol>
+        <li><strong>You send</strong> a phone recording of your game and your store link. No editing, no export settings.</li>
+        <li><strong>Within 24 hours</strong> you get five hook lines to approve, written from your store page.</li>
+        <li><strong>Within 48 hours</strong> you get the finished pack, named for your ad manager. This sample was made from a plain recording; nothing was re-animated.</li>
+      </ol>
     </div>
   </div>
 </section>
